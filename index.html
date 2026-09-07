@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyuncak Kardeşleri</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --text: #1F1E1D;
+      --muted: #615E59;
+      --primary: #FF7A00;
+      --primary-hover: #e66e00;
+      --border: #E5DFD5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* === 1. BÖLÜM: BANNER & HERO === */
+    .hero-banner {
+      padding: 3.5rem 0 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .logo-box {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .highlight-oval {
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      padding: 0.6rem 1.75rem;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      background: #FFF;
+      box-shadow: 2px 3px 0px rgba(0,0,0,0.06);
+    }
+    .infographic-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 280px;
+      line-height: 1.4;
+      background: rgba(255, 122, 0, 0.08);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+
+    /* İnfografik Sayaç Şeridi */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding: 1.25rem 0;
+      border-top: 1px dashed var(--border);
+    }
+    .stat-item {
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* === YUKARI ALINAN: MANİFESTO & BÜYÜK GÖRSEL & CTA ALANI === */
+    .manifesto-hero-block {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .big-visual-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    .big-visual-box img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .closing-manifesto {
+      padding: 3rem 1.5rem 1rem 1.5rem;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .closing-manifesto h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+    .closing-manifesto p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* CTA Buton Grubu */
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(255, 122, 0, 0.25);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: #FFFFFF;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* === 2. BÖLÜM: BİZ KİMİZ ŞERİDİ === */
+    .identity-strip {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin: 3.5rem auto 2rem auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .badge-who {
+      background: var(--text);
+      color: #FFF;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .identity-text {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* === 3 & 4. BÖLÜM: ZİKZAK AKIŞ (AÇILI FOTOĞRAFLAR) === */
+    .story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin: 5rem 0;
+    }
+    .text-block h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .text-block p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tilted-photo-frame {
+      position: relative;
+      background: #FFFFFF;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease;
+    }
+    .tilt-left { transform: rotate(-3.5deg); }
+    .tilt-right { transform: rotate(3.5deg); }
+    .tilted-photo-frame:hover { transform: rotate(0deg) scale(1.02); }
+    .tilted-photo-frame img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* === EN ALT: TARİHÇE KISMI === */
+    .footer-history {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .history-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .history-tag:hover {
+      color: var(--primary-hover);
+    }
+
+    @media (max-width: 800px) {
+      .story-row {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .tilt-left, .tilt-right { transform: none; }
+      .order-swap { order: 2; }
+      .cta-actions {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+      .big-visual-box img {
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ① BANNER: Logo + "Kardeşliğin bir parçası ol" + İnfografik Not -->
+    <header class="hero-banner">
+      <div class="hero-top">
+        <div class="hero-left">
+          <div class="logo-box">🧸</div>
+          <div class="highlight-oval">Kardeşliğin bir parçası ol</div>
+        </div>
+        <div class="infographic-note">
+          <strong>1.2 Infografik:</strong> Toplanan oyuncaklar, saha aktiviteleri ve gönüllü etki verileri.
+        </div>
+      </div>
+
+      <!-- İnfografik sayaçlar -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <div class="stat-number">12.400+</div>
+          <div class="stat-label">Ulaştırılan Oyuncak</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">48</div>
+          <div class="stat-label">Köy Okulu ve Ziyaret</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1.250+</div>
+          <div class="stat-label">Gönüllü Kardeş</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Tebessüm ve Sevgi</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ⑤ & ⑥ YUKARI TAŞINAN BÖLÜM: BÜYÜK GÖRSEL + MANİFESTO + CALL TO ACTION -->
+    <section class="manifesto-hero-block">
+      <div class="big-visual-box">
+        <img 
+          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80" 
+          alt="Toplu dağıtım ve gönüllüler"
+        >
+      </div>
+
+      <div class="closing-manifesto">
+        <h2>OYUNCAK KARDEŞLERİ bir bağış organizasyonu değildir.</h2>
+        <p>
+          Bir gün bütün çocuklar eşit hayal kurabilsin ve kardeşliği içlerinde yaşatabilsin diye başlamış bir kardeşlik hareketidir. 
+          Sen de bu kardeşliğin bir parçası ol.
+        </p>
+
+        <!-- Harekete Geçiş Butonları -->
+        <div class="cta-actions">
+          <a href="#bagis" class="btn btn-primary">🧸 Oyuncak Bağışla</a>
+          <a href="#gonullu" class="btn btn-outline">🤝 Gönüllü Ol</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ② BİZ KİMİZ ŞERİDİ -->
+    <section class="identity-strip">
+      <span class="badge-who">Biz Kimiz?</span>
+      <p class="identity-text">
+        “Oyuncağı olmayan veya oyuncağa erişimi kısıtlı olan çocuklara oyuncak arayıp bulan ve ulaştıran emanetçileriz.”
+      </p>
+    </section>
+
+    <!-- ③ & ④ ZİKZAK EDİTORYAL ALAN -->
+    
+    <!-- 1. Blok: Solda Açılı Fotoğraf, Sağda 1. Metin -->
+    <section class="story-row">
+      <div class="tilted-photo-frame tilt-left">
+        <img 
+          src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80" 
+          alt="Oyuncak onarımı ve çocukluk"
+        >
+      </div>
+      <div class="text-block">
+        <h3>“Oysa bir oyuncak sadece bir oyuncak değildir.”</h3>
+        <p>
+          Bazı çocukların oyuncakları fazlaydı, bazılarının ise hiç yoktu. 
+          Biz bu uçurumu kapatmak, her çocuğun hakkı olan o ilk sevinci paylaşmak için yola çıktık.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Blok: Solda 2. Metin, Sağda Açılı Fotoğraf -->
+    <section class="story-row">
+      <div class="text-block order-swap">
+        <h3>“Bazen çocukluk, bazen de kardeşlik bağıdır.”</h3>
+        <p>
+          Bazen bir oyuncak hiç tanışmamış iki çocuk arasında kurulan en samimi köprüdür. 
+          Paylaşılan her oyuncak, farklılıkları aşan bir sevgi bağına dönüşür.
+        </p>
+      </div>
+      <div class="tilted-photo-frame tilt-right">
+        <img 
+          src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=800&q=80" 
+          alt="Tebessüm eden çocuk"
+        >
+      </div>
+    </section>
+
+    <!-- EN ALT: TARİHÇE KAPANŞI -->
+    <div class="footer-history">
+      <a href="#tarihce" class="history-tag">
+        <span>• Tarihçe & Yolculuğumuz</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>
